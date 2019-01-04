@@ -46,8 +46,12 @@ int main() {
 				int x, y;
 				scanf("%d%d", &x, &y);
 				if (x == y) continue;
+				if (a[y].r == x) continue;
 				if (x == head) {
 					head = a[x].r;
+				}
+				if (x == tail) {
+					tail = a[x].l;
 				}
 				if (y == tail) {
 					tail = x;

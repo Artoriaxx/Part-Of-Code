@@ -1,25 +1,19 @@
 #include <bits/stdc++.h>
 #define maxn 100000050
 using namespace std;
+int a[150] = { 131,193,5,479,179,101,199,137,23,401,157,197,313,167,127,7,379,109,13,29,73,229,83,239,97,37,53,347,293,113,311,467,47,373,2,151,337,263,461,367,223,103,389, 211,17,443,251,227,11,457,41,331,107,257,59,271,269,19,433,71,67,79,421,463,317,277,241,397,139,353,359,173,449,409,383,191,233,89,283,419,349,3,163,439, 31,181,307,431,61,43,149,487,491,281 };
 int cnt, notprime[maxn], prime[maxn];
-inline int getnum() {
-	int ans = 0; char c; int flag = 1;
-	while (!isdigit(c = getchar()) && c != '-');
-	if (c == '-') flag = -1; else ans = c - '0';
-	while (isdigit(c = getchar())) ans = ans * 10 + c - '0';
-	return ans * flag;
-}
 int main() {
-	int n = getnum();
-	for (int i = 2; i <= n; i++) {
+	for (int i = 2; i <= 500; i++) {
 		if (!notprime[i]) prime[++cnt] = i;
-		for (int j = 1; j <= cnt && i * prime[j] <= 300; j++) {
+		for (int j = 1; j <= cnt && i * prime[j] <= 500; j++) {
 			notprime[i * prime[j]] = 1;
 			if (i % prime[j] == 0) break;
 		}
 	}
-	for (int i = 1; i <= cnt; i++) {
-		printf("%d ", prime[i]);
+	sort(a, a + 94);
+	for (int i = 1; i <= 95; i++) {
+		cout << prime[i] << " ";
 	}
 	return 0;
 }
